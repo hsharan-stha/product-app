@@ -1,0 +1,16 @@
+<form [formGroup]="productForm" (submit)="saveProduct()">
+  <div>
+    <label>Product Label</label>
+    <input type="text" formControlName="label" />
+  </div>
+  <div>
+    <label>Product Price</label>
+    <input type="text" formControlName="price"/>
+  </div>
+  <div>
+    <button *ngIf="!productForm.get('id')?.value; else updateSection" type="submit">Save Product</button>
+  <ng-template #updateSection>
+    <button type="submit">Update Product</button>
+  </ng-template>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<button (click)="navigateToCreate()">Add New Product</button>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Label</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of getAllData$ | async">
+    <td>{{data?.label}}</td>
+    <td>{{data?.price}}</td>
+    <td>
+      <button (click)="navigateToEdit(data?.id)">edit</button> |
+      <button (click)="confirmDelete(data?.id)">delete</button></td>
+  </tr>
+  </tbody>
+</table>
