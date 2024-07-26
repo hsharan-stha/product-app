@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Product} from "../../../interface/Product";
-import {ProductService} from "../../../service/product.service";
+import {ProductService} from "../../../service/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {concatMap, filter, take} from "rxjs";
 import {NgIf} from "@angular/common";

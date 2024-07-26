@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Router, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,4 +10,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class HomeComponent {
 
+  constructor(private router:Router) {
+  }
+
+
+  public async navigateToLogin():Promise<void>{
+    await this.router.navigateByUrl("/login")
+  }
 }

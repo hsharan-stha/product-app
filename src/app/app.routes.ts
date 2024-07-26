@@ -2,6 +2,8 @@ import {Routes} from '@angular/router';
 import {AdminComponent} from "./components/admin/admin/admin.component";
 import {ProductCreateComponent} from "./components/admin/product-create/product-create.component";
 import {ProductTableComponent} from "./components/admin/product-table/product-table.component";
+import {authGuard} from "./guard/auth.guard";
+import {LoginComponent} from "./components/home/login/login.component";
 
 export const routes: Routes = [
     {
@@ -20,7 +22,7 @@ export const routes: Routes = [
             }
         ]
     },
-  {
+    {
     path:"admin",
     loadComponent:()=>import("./components/admin/admin/admin.component")
       .then((m)=>AdminComponent),
@@ -42,7 +44,13 @@ export const routes: Routes = [
       },
       {path:"**",redirectTo:"product-table"}
     ],
+    canActivate:[authGuard]
   },
+    {
+      path:"login",
+      loadComponent:()=>import("./components/home/login/login.component")
+        .then((m)=>LoginComponent),
+    },
     {path:"**",redirectTo:"home"}
 
 ];
