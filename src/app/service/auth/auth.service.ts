@@ -13,7 +13,9 @@ export class AuthService {
   constructor(private router:Router) { }
 
   public setLocalStorage(data:UserInfo):void{
-    localStorage.setItem(environment.accessKey,JSON.stringify(data));
+    const dataS={...data};
+    Object.defineProperty(dataS,'password',{enumerable:false})
+    localStorage.setItem(environment.accessKey,JSON.stringify(dataS));
   }
 
 

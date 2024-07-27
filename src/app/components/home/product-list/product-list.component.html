@@ -1,1 +1,5 @@
 <p>product-list works!</p>
+<div *ngFor="let data of allProduct$ | async">
+  {{data?.label}}
+</div>
+<button (click)="prev()">prev</button><button (click)="next()">next</button>
