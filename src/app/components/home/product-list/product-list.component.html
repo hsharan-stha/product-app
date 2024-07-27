@@ -1,5 +1,14 @@
 <p>product-list works!</p>
+<div
+  style="height: 200px;overflow: scroll"
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()"
+  [scrollWindow]="false"
+>
 <div *ngFor="let data of allProduct$ | async">
   {{data?.label}}
 </div>
-<button (click)="prev()">prev</button><button (click)="next()">next</button>
+</div>
