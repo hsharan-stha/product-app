@@ -3,87 +3,122 @@
     {
       "id": "51b5",
       "label": "123123",
-      "price": "13"
+      "price": "13",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "ba92",
       "label": "123",
-      "price": "123123"
+      "price": "123123",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "4781",
       "label": "asd",
-      "price": "asdas"
+      "price": "asdas",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "75ae",
       "label": "asdad",
-      "price": "asdasd"
+      "price": "asdasd",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "8ec4",
       "label": "asd",
-      "price": "asdas"
+      "price": "asdas",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "0003",
       "label": "asd",
-      "price": "asdas"
+      "price": "asdas",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "54a7",
       "label": "ZX",
-      "price": "xZX"
+      "price": "xZX",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "cb67",
       "label": "asdasd",
-      "price": "asdasdas"
+      "price": "asdasdas",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "c4f4",
       "label": "asdasd",
-      "price": "asdasd"
+      "price": "asdasd",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "30bb",
       "label": "asdasd",
-      "price": "asdasd"
+      "price": "asdasd",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "63df",
       "label": "werwe",
-      "price": "werwer"
+      "price": "werwer",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "8f30",
       "label": "asdasd",
-      "price": "asdadasd"
+      "price": "asdadasd",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "cafb",
       "label": "q",
-      "price": "q"
-    },
-    {
-      "id": null,
-      "label": "adad",
-      "price": "asdasd"
-    },
-    {
-      "id": null,
-      "label": "sdasd",
-      "price": "asdasd"
+      "price": "q",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "7dea",
       "label": "12312",
-      "price": "12312312"
+      "price": "12312312",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "3355",
       "label": "123",
-      "price": "12"
+      "price": "12",
+      "isFavouriteOf": [
+        2
+      ]
     }
   ]
 }

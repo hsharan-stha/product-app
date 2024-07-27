@@ -1,6 +1,9 @@
 <p>product-list works!</p>
+<div>
+  <input type="text" [(ngModel)]="searchText"/>
+</div>
 <div
-  style="height: 200px;overflow: scroll"
+  style="height: 150px;overflow: scroll"
   class="search-results"
   infiniteScroll
   [infiniteScrollDistance]="2"
@@ -8,7 +11,8 @@
   (scrolled)="onScroll()"
   [scrollWindow]="false"
 >
-<div *ngFor="let data of allProduct$ | async">
+<div *ngFor="let data of allProduct$ | async | filter : {label : searchText} ">
   {{data?.label}}
+  <button *ngIf="checkIsAlreadyLiked(data)" (click)="addToFavourite(data)">like</button>
 </div>
 </div>
