@@ -5,6 +5,7 @@
       "label": "123123",
       "price": "13",
       "isFavouriteOf": [
+        3,
         2
       ]
     },

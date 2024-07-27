@@ -63,8 +63,10 @@ export class ProductListComponent  implements OnInit{
                 let updatePayload:Product;
 
                 if(data?.isFavouriteOf){
-                  let favourite:number[]=[];
-                  favourite.push(this.authService.getUserDetails().id)
+                  let favourite:number[] | undefined=data?.isFavouriteOf;
+                  if (favourite) {
+                    favourite.push(this.authService.getUserDetails().id)
+                  }
                   updatePayload={
                   ...data,
                   isFavouriteOf:favourite
