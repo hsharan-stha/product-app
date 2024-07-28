@@ -1,0 +1,36 @@
+.card{
+  height: Calc(100vh - 181px);
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:2rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.card .card-info{
+  box-shadow: #F0F1F3 10px 10px 10px;
+  border-radius: 0.25rem;
+  width: 25%;
+  position: relative;
+}
+.card .card-info .img-section img{
+  width: 100%;
+}
+
+.card .card-info .favourite{
+  cursor: pointer;
+}
+.card .card-info .favourite{
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  top:0;
+  right:8px;
+  background-color: white;
+}
+
+

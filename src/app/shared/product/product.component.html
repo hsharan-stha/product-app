@@ -1,14 +1,23 @@
 <div
-  style="height: 150px;overflow: scroll"
-  class="search-results"
+  class="card"
   infiniteScroll
   [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="500"
   (scrolled)="scrollFn()"
   [scrollWindow]="false"
 >
-  <div *ngFor="let data of products$ | async | filter : {label : searchText} ">
-    {{data?.label}}
+  <div class="card-info" *ngFor="let data of products$ | async | filter : {label : searchText};let i=index; ">
+    <div class="img-section">
+      <img [ngSrc]="getRandomImage(i)" [alt]="data.label" height="300" width="200" priority />
+    </div>
+    <div class="info">
+      <h1>    {{data?.label}}</h1>
+      <p>{{data?.price}}</p>
+    </div>
+    <div class="favourite" (click)="addToFavourite(data)">
+      <img *ngIf="checkIsAlreadyLiked(data)" ngSrc="./assets/icons/favourite-check.svg" alt="" height="24" width="24" />
+      <img *ngIf="!checkIsAlreadyLiked(data)" ngSrc="./assets/icons/favourite-uncheck.svg" alt="" height="24" width="24" />
+    </div>
 <!--    <button *ngIf="!checkIsAlreadyLiked(data)" (click)="addToFavourite(data)">like</button>-->
   </div>
 </div>
