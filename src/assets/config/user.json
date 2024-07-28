@@ -16,5 +16,11 @@
     "role": "Normal",
     "username": "sabin",
     "password": "normal@123"
+  },
+  {
+    "id": 4,
+    "role": "Normal",
+    "username": "nitesh",
+    "password": "normal@123"
   }
 ]

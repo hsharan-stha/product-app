@@ -87,7 +87,7 @@ export class ProductListComponent  implements OnInit{
           .subscribe(res=>{
             if(res){
               alert("Item added to favourite list")
-              this.fetchData();
+              // this.fetchData();
             }
           })
       }
@@ -97,11 +97,12 @@ export class ProductListComponent  implements OnInit{
   }
 
    checkIsAlreadyLiked(data:Product):boolean{
+
     if(data?.isFavouriteOf && this.authService.getUserDetails().id) {
-      return data.isFavouriteOf.some(userId => userId !== this.authService.getUserDetails().id)
+      return data.isFavouriteOf.some(userId => userId === this.authService.getUserDetails().id)
     }
 
-    return true
+    return false
   }
 
 

@@ -13,6 +13,6 @@
 >
 <div *ngFor="let data of allProduct$ | async | filter : {label : searchText} ">
   {{data?.label}}
-  <button *ngIf="checkIsAlreadyLiked(data)" (click)="addToFavourite(data)">like</button>
+  <button *ngIf="!checkIsAlreadyLiked(data)" (click)="addToFavourite(data)">like</button>
 </div>
 </div>
