@@ -1,0 +1,9 @@
+<div class="top-bar">
+  <div class="profile">
+        <span *ngIf="username; else loginSection" class="user-name">{{username}}
+        </span>
+    <ng-template #loginSection>
+      <button (click)="loginFn()" class="btn-login">login</button>
+    </ng-template>
+  </div>
+</div>

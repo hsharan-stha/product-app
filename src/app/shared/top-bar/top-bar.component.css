@@ -1,0 +1,32 @@
+
+.top-bar{
+  background: white;
+  padding: 1rem;
+  border: solid 1px #F0F1F3
+}
+
+.top-bar .profile{
+  display: flex;
+  justify-content: end;
+}
+
+.top-bar .profile .user-name{
+  background: #91bbf8;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar .profile .btn-login{
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border:none;
+  background: #F0F1F3;
+  font-size: 16px;
+  outline: none;
+}
+

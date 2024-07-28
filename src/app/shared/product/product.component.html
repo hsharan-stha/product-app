@@ -1,0 +1,14 @@
+<div
+  style="height: 150px;overflow: scroll"
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="scrollFn()"
+  [scrollWindow]="false"
+>
+  <div *ngFor="let data of products$ | async | filter : {label : searchText} ">
+    {{data?.label}}
+<!--    <button *ngIf="!checkIsAlreadyLiked(data)" (click)="addToFavourite(data)">like</button>-->
+  </div>
+</div>

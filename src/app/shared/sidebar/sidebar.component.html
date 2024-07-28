@@ -1,0 +1,25 @@
+<div class="sidebar">
+  <div class="logo">
+    <img src="./assets/icons/Logo.svg" alt="logo" />
+  </div>
+  <div class="side-content">
+    <div class="navigator">
+      <ul>
+        <li *ngFor="let i of sideBarList" routerLinkActive="active-link"
+            [routerLink]="i.url">
+          <img ngSrc="./assets/icons/{{i.icon}}" [alt]="i.label" height="24"
+               width="24"/> <span>{{i.label}}</span> </li>
+      </ul>
+    </div>
+    <div  class="logout">
+      <ul >
+        <li  *ngIf="username" (click)="logout()">
+          <img ngSrc="./assets/icons/LogOut.svg" alt="dashboard" height="24"
+               width="24"/>
+          <span>Logout</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
