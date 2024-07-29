@@ -19,7 +19,8 @@ export const routes: Routes = [
                 path:"favourite",
                 loadComponent:()=>import("./components/home/product-favourite/product-favourite.component")
                   .then((m)=>m.ProductFavouriteComponent)
-            }
+            },
+          {path:"**",redirectTo:"product"}
         ]
     },
     {

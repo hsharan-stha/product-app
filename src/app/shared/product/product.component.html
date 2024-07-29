@@ -7,8 +7,8 @@
   [scrollWindow]="false"
 >
   <div class="card-info" *ngFor="let data of products$ | async | filter : {label : searchText};let i=index; ">
-    <div class="img-section">
-      <img [ngSrc]="getRandomImage(i)" [alt]="data.label" height="300" width="200" priority />
+    <div class="image-landscape">
+      <img [ngSrc]="getRandomImage(i)" [alt]="data.label" fill priority />
     </div>
     <div class="info">
       <h1>    {{data?.label}}</h1>

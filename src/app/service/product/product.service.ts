@@ -36,6 +36,16 @@ export class ProductService {
     )
   }
 
+  findPaginatedAllFavouriteProduct(currentPage:number,itemPerPage:number,currentUser:number | undefined):Observable<Array<Product>>{
+    const start=(currentPage - 1) * itemPerPage;
+    const end=start + itemPerPage;
+
+    return this.httpClient.get<Array<Product>>(this.productEndPoint).pipe(
+      delay(500),
+      map(res=>res.filter(i=>i?.isFavouriteOf?.some(id=>id===currentUser)).slice(start,end))
+    )
+  }
+
   findById(id:string):Observable<Product>{
     return this.httpClient.get<Product>(`${this.productEndPoint}/${id}`)
   }

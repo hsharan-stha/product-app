@@ -15,7 +15,7 @@ import {SideBar} from "../../../interface/SideBar";
 })
 export class HomeComponent implements OnInit{
 
-  public userDetails:UserInfo;
+  public userDetails:UserInfo | undefined;
 
   public sideBarList:SideBar[]=[
     {

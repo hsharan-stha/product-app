@@ -18,8 +18,11 @@
   width: 25%;
   position: relative;
 }
-.card .card-info .img-section img{
-  width: 100%;
+
+
+
+.card .card-info .img-section{
+  height:300px; width:100%;
 }
 
 .card .card-info .favourite{
@@ -31,6 +34,21 @@
   top:0;
   right:8px;
   background-color: white;
+}
+
+.image-landscape {
+  position: relative;
+  width: 100%;
+  padding-top: calc(16/16*100%);
+}
+
+.image-landscape img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
 }
 
 

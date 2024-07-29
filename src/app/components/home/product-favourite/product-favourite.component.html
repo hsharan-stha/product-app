@@ -1,1 +1,6 @@
-<p>product-favourite works!</p>
+<div class="search-section">
+  <input type="text" [(ngModel)]="searchText" placeholder="search product ..."/>
+</div>
+<app-product [products$]="allProduct$"
+             (scrollEvent)="onScroll()"
+             [searchText]="searchText"></app-product>

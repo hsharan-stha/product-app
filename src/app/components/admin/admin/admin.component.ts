@@ -25,7 +25,7 @@ export class AdminComponent implements OnInit{
 
   @HostBinding("class.display-block") className="display-block";
 
-  public userDetails:UserInfo;
+  public userDetails:UserInfo | undefined;
 
   public sideBarList:SideBar[]=[
     {

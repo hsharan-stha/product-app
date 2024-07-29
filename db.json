@@ -1,134 +1,38 @@
 {
   "product": [
     {
-      "id": "51b5",
-      "label": "123123",
-      "price": "13",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "ba92",
-      "label": "123",
-      "price": "123123",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "4781",
-      "label": "asd",
-      "price": "asdas",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "75ae",
-      "label": "asdad",
-      "price": "asdasd",
-      "isFavouriteOf": [
-        2,
-        3,
-        4
-      ]
-    },
-    {
-      "id": "8ec4",
-      "label": "asd",
-      "price": "asdas",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "0003",
-      "label": "asd",
-      "price": "asdas",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "54a7",
-      "label": "ZX",
-      "price": "xZX",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "cb67",
-      "label": "asdasd",
-      "price": "asdasdas",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "c4f4",
-      "label": "asdasd",
-      "price": "asdasd",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "30bb",
-      "label": "asdasd",
-      "price": "asdasd",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "63df",
-      "label": "werwe",
-      "price": "werwer",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "8f30",
-      "label": "asdasd",
-      "price": "asdadasd",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "cafb",
-      "label": "q",
-      "price": "q",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
       "id": "7dea",
-      "label": "12312",
-      "price": "12312312",
+      "label": "Football",
+      "price": "2000",
       "isFavouriteOf": [
         2
       ]
     },
     {
       "id": "3355",
-      "label": "123",
-      "price": "12",
+      "label": "VolleyBall",
+      "price": "1000",
       "isFavouriteOf": [
         2
       ]
     },
     {
       "id": "f055",
-      "label": "123",
-      "price": "123",
+      "label": "BasketBall",
+      "price": "2500",
       "isFavouriteOf": [
         2
       ]
+    },
+    {
+      "id": "809d",
+      "label": "Pants",
+      "price": "2000"
+    },
+    {
+      "id": "3da3",
+      "label": "Jeans",
+      "price": "3000"
     }
   ]
 }
