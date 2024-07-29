@@ -11,7 +11,7 @@ export const routes: Routes = [
         loadComponent:()=>import("./components/home/home/home.component").then((m)=>m.HomeComponent),
         children:[
             {
-                path:"",
+                path:"product",
                 loadComponent:()=>import("./components/home/product-list/product-list.component")
                   .then((m)=>m.ProductListComponent)
             },

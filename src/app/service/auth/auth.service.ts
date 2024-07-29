@@ -33,6 +33,6 @@ export class AuthService {
 
   public async logout():Promise<void>{
     localStorage.clear();
-    await this.router.navigateByUrl("/home")
+    await this.router.navigateByUrl("/login")
   }
 }

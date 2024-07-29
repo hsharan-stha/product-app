@@ -1,3 +1,12 @@
-<p>home works!</p>
-<button (click)="navigateToLogin()">Login</button>
-<router-outlet />
+<!--<p>home works!</p>-->
+<!--<button (click)="navigateToLogin()">Login</button>-->
+<!--<router-outlet />-->
+<div class="container">
+  <app-sidebar (logoutEvent)="logout()" [sideBarList]="sideBarList" [username]="userDetails?.username"></app-sidebar>
+  <div class="main">
+    <app-top-bar [username]="userDetails?.username" (loginEvent)="navigateToLogin()"></app-top-bar>
+    <div class="body">
+      <router-outlet/>
+    </div>
+  </div>
+</div>

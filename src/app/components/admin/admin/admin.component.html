@@ -1,40 +1,9 @@
-<div class="admin">
-  <div class="sidebar">
-    <div class="logo">
-      <img src="./assets/icons/Logo.svg" alt="logo" />
-    </div>
-    <div class="side-content">
-      <div class="navigator">
-          <ul>
-<!--            <li routerLinkActive="active-link" routerLink="/admin"> <img ngSrc="./assets/icons/Home.svg" alt="dashboard" height="20" width="20"/> <span>Dashboard</span> </li>-->
-            <li routerLinkActive="active-link" routerLink="/admin/product-table">
-              <img ngSrc="./assets/icons/Home.svg" alt="dashboard" height="24"
-                                                        width="24"/> <span>Product</span> </li>
-          </ul>
-      </div>
-      <div class="logout">
-        <ul>
-          <li (click)="logout()">
-          <img ngSrc="./assets/icons/LogOut.svg" alt="dashboard" height="24"
-               width="24"/>
-          <span>Logout</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+<div class="container">
+  <app-sidebar (logoutEvent)="logout()" [sideBarList]="sideBarList" [username]="userDetails?.username"></app-sidebar>
   <div class="main">
-    <div class="top-bar">
-      <div class="profile">
-        <span class="user-name">{{userDetails?.username}}
-        </span>
-      </div>
-    </div>
+    <app-top-bar [username]="userDetails?.username"></app-top-bar>
     <div class="body">
       <router-outlet/>
     </div>
   </div>
-
-
 </div>

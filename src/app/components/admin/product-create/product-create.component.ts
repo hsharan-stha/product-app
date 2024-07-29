@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Product} from "../../../interface/Product";
 import {ProductService} from "../../../service/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {concatMap, filter, take} from "rxjs";
 import {NgIf} from "@angular/common";
+import {createPriceValidators} from "../../../validators/createPriceValidators";
 
 @Component({
   selector: 'app-product-create',
@@ -49,12 +50,40 @@ export class ProductCreateComponent implements OnInit{
   public initializeForm():void{
     this.productForm=this.formBuilder.group({
       id:[],
-      label:["",Validators.required],
-      price:["",Validators.required]
+      label:["",[Validators.required,Validators.minLength(3)]],
+      price:["",[Validators.required,createPriceValidators()]]
     })
   }
 
+  get labelField(){
+    return this.productForm.get('label');
+  }
+
+  get priceField(){
+    return this.productForm.get('price');
+  }
+
+  public validateAllFormFields(currentForm: FormGroup):void {
+    let firstInvalidElement: string | null = null;
+    Object.keys(currentForm.controls).forEach((field) => {
+      const control = currentForm.get(field);
+      if (control?.status == 'INVALID' && firstInvalidElement == null) {
+        firstInvalidElement = field;
+      }
+
+      if (control instanceof FormControl) {
+        control.markAsTouched({onlySelf: true});
+      }
+    });
+  }
+
+
   public saveProduct() {
+    console.log(this.productForm)
+    if(this.productForm.invalid){
+      this.validateAllFormFields(this.productForm)
+      return;
+    }
     let data: Product = this.productForm.value;
 
     if (data?.id) {
@@ -69,6 +98,10 @@ export class ProductCreateComponent implements OnInit{
         await this.router.navigateByUrl("/admin/product-list")
       })
     }
+  }
+
+  public async navigateToList():Promise<void>{
+    await this.router.navigateByUrl("/admin/product-list")
   }
 
 

@@ -17,6 +17,9 @@ import {Router} from "@angular/router";
 })
 export class ProductTableComponent implements OnInit{
 
+  public currentPage:number=1;
+  private itemPerPage:number=10;
+
   public getAllData$:Observable<Array<Product>>;
 
   constructor(private productService:ProductService,private router:Router) {
@@ -27,7 +30,7 @@ export class ProductTableComponent implements OnInit{
   }
 
   private fetchData():void{
-  this.getAllData$=this.productService.findAllProduct()
+  this.getAllData$=this.productService.findPaginatedAllProduct(this.currentPage,this.itemPerPage)
 }
 
   public async navigateToCreate():Promise<void>{
@@ -53,6 +56,20 @@ export class ProductTableComponent implements OnInit{
         console.log(err)
       }
     })
+  }
+
+  public prev():void{
+    this.currentPage--;
+    if(this.currentPage < 0){
+      this.currentPage=1;
+    }
+
+    this.fetchData()
+  }
+
+  public next():void{
+    this.currentPage++;
+    this.fetchData()
   }
 
 

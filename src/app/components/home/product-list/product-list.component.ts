@@ -7,6 +7,7 @@ import {InfiniteScrollDirective} from "ngx-infinite-scroll";
 import {FilterPipe} from "../../../pipe/filter.pipe";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../../service/auth/auth.service";
+import {ProductComponent} from "../../../shared/product/product.component";
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +18,8 @@ import {AuthService} from "../../../service/auth/auth.service";
     InfiniteScrollDirective,
     FilterPipe,
     FormsModule,
-    NgIf
+    NgIf,
+    ProductComponent
   ],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
@@ -95,16 +97,5 @@ export class ProductListComponent  implements OnInit{
       alert("Please login before add to favourite")
     }
   }
-
-   checkIsAlreadyLiked(data:Product):boolean{
-
-    if(data?.isFavouriteOf && this.authService.getUserDetails().id) {
-      return data.isFavouriteOf.some(userId => userId === this.authService.getUserDetails().id)
-    }
-
-    return false
-  }
-
-
 
 }

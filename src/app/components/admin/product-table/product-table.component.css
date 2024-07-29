@@ -1,0 +1,82 @@
+.table-container {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.table-container .styled-table {
+  width: 100%;
+  padding: 1rem;
+}
+
+
+.table-container .styled-table thead tr {
+  text-align: left;
+}
+
+.table-container .styled-table thead tr th:last-child {
+  text-align: right;
+}
+
+
+.table-container .styled-table th, .styled-table td {
+  padding: 1rem 0.5rem;
+}
+
+.table-container .styled-table td:last-child {
+  text-align: right;
+}
+
+.table-container .styled-table td:last-child button:first-child{
+  background: #1570EF;
+}
+.table-container .styled-table td:last-child button:last-child{
+  background: red;
+}
+
+.table-container .styled-table tbody tr td:last-child{
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.table-container .styled-table tbody tr td button {
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.table-container .styled-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+
+.table-container .styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-container .styled-table button:hover {
+  background-color: #007f63;
+}
+
+.table-container .styled-table tfoot tr td ul{
+  list-style-type: none;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.table-container .styled-table tfoot tr td ul:first-child,
+.table-container .styled-table tfoot tr td ul:last-child{
+  cursor: pointer;
+}
+
+.table-container .styled-table tfoot tr td ul:first-child:before{
+  content:"<"
+}
+
+.table-container .styled-table tfoot tr td ul:last-child:after{
+  content:">"
+}

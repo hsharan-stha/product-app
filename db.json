@@ -5,9 +5,7 @@
       "label": "123123",
       "price": "13",
       "isFavouriteOf": [
-        2,
-        3,
-        4
+        2
       ]
     },
     {
@@ -15,9 +13,7 @@
       "label": "123",
       "price": "123123",
       "isFavouriteOf": [
-        2,
-        3,
-        4
+        2
       ]
     },
     {
@@ -25,9 +21,7 @@
       "label": "asd",
       "price": "asdas",
       "isFavouriteOf": [
-        2,
-        3,
-        4
+        2
       ]
     },
     {
@@ -124,6 +118,14 @@
       "id": "3355",
       "label": "123",
       "price": "12",
+      "isFavouriteOf": [
+        2
+      ]
+    },
+    {
+      "id": "f055",
+      "label": "123",
+      "price": "123",
       "isFavouriteOf": [
         2
       ]

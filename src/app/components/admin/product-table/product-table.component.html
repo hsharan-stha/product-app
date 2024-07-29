@@ -1,9 +1,17 @@
-<button (click)="navigateToCreate()">Add New Product</button>
-<table border="1">
+<div class="product-list">
+<div class="top">
+  <h3>Product List</h3>
+  <div>
+    <button (click)="navigateToCreate()">Add New Product</button>
+  </div>
+</div>
+  <div class="table-container">
+<table class="styled-table">
   <thead>
   <tr>
     <th>Label</th>
     <th>Price</th>
+    <th>Action</th>
   </tr>
   </thead>
   <tbody>
@@ -11,8 +19,21 @@
     <td>{{data?.label}}</td>
     <td>{{data?.price}}</td>
     <td>
-      <button (click)="navigateToEdit(data?.id)">edit</button> |
+      <button (click)="navigateToEdit(data?.id)">edit</button>
       <button (click)="confirmDelete(data?.id)">delete</button></td>
   </tr>
   </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="3">
+      <ul>
+        <li (click)="prev()">prev</li>
+        <li>{{currentPage}}</li>
+        <li (click)="next()">next</li>
+      </ul>
+    </td>
+  </tr>
+  </tfoot>
 </table>
+  </div>
+</div>
