@@ -15,9 +15,10 @@
       <p>{{data?.price}}</p>
     </div>
     <div class="favourite" (click)="addToFavourite(data)">
-      <img *ngIf="checkIsAlreadyLiked(data)" ngSrc="./assets/icons/favourite-check.svg" alt="" height="24" width="24" />
-      <img *ngIf="!checkIsAlreadyLiked(data)" ngSrc="./assets/icons/favourite-uncheck.svg" alt="" height="24" width="24" />
+      <img *ngIf="(!checkIsAlreadyLiked(data) && !data?.checked) || (checkIsAlreadyLiked(data) && data?.checked); else checkSection" ngSrc="./assets/icons/favourite-uncheck.svg" alt="" height="24" width="24" />
+   <ng-template #checkSection>
+     <img ngSrc="./assets/icons/favourite-check.svg" alt="" height="24" width="24" />
+   </ng-template>
     </div>
-<!--    <button *ngIf="!checkIsAlreadyLiked(data)" (click)="addToFavourite(data)">like</button>-->
   </div>
 </div>

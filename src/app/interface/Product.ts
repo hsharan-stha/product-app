@@ -3,4 +3,5 @@ export interface Product{
   label:string,
   price:string,
   isFavouriteOf?:number[]
+  checked?:boolean;
 }

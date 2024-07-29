@@ -45,12 +45,7 @@ export class ProductComponent {
   }
 
   public checkIsAlreadyLiked(data:Product):boolean{
-
-    if(data?.isFavouriteOf && this.authService.getUserDetails()?.id) {
-      return <boolean>data.isFavouriteOf?.some(userId => userId === this.authService.getUserDetails()?.id)
-    }
-
-    return false
+    return <boolean>data?.isFavouriteOf?.includes(<number>this.authService.getUserDetails()?.id);
   }
 
 }

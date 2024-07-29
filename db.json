@@ -5,6 +5,7 @@
       "label": "Football",
       "price": "2000",
       "isFavouriteOf": [
+        3,
         2
       ]
     },
@@ -13,6 +14,7 @@
       "label": "VolleyBall",
       "price": "1000",
       "isFavouriteOf": [
+        3,
         2
       ]
     },
@@ -20,14 +22,13 @@
       "id": "f055",
       "label": "BasketBall",
       "price": "2500",
-      "isFavouriteOf": [
-        2
-      ]
+      "isFavouriteOf": []
     },
     {
       "id": "809d",
       "label": "Pants",
-      "price": "2000"
+      "price": "2000",
+      "isFavouriteOf": []
     },
     {
       "id": "3da3",

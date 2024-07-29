@@ -8,6 +8,7 @@ import {FilterPipe} from "../../../pipe/filter.pipe";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../../service/auth/auth.service";
 import {ProductComponent} from "../../../shared/product/product.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -34,7 +35,9 @@ export class ProductListComponent  implements OnInit{
   public searchText:string="";
 
 
-  constructor(private productService:ProductService,private authService:AuthService) {
+  constructor(private productService:ProductService,
+              private router:Router,
+              private authService:AuthService) {
   }
   ngOnInit(): void {
     this.fetchData();
@@ -52,49 +55,44 @@ export class ProductListComponent  implements OnInit{
   }
 
   public addToFavourite(data:Product):void{
-    if(this.authService.getUserDetails()?.id){
-      if(data?.id){
+    const userId=this.authService.getUserDetails()?.id;
+    if(userId){
+      if(!data?.id) {
+        return
+      }
         this.productService.findById(data.id)
           .pipe(
             concatMap((res)=>{
-              if(res?.isFavouriteOf && res?.isFavouriteOf.some(userId=>userId===this.authService.getUserDetails()?.id)){
-                alert("You have already liked this product")
-                return of(undefined)
-              }else{
+              const favourite = res?.isFavouriteOf ?? [];
 
-                let updatePayload:Product;
-
-                if(data?.isFavouriteOf){
-                  let favourite:number[] | undefined=data?.isFavouriteOf;
-                  if (favourite) {
-                    favourite.push(this.authService.getUserDetails().id)
-                  }
-                  updatePayload={
+              if (favourite?.includes(userId)) {
+                console.log(favourite.filter(id=>id===userId))
+                const updatedPayload:Product={
                   ...data,
-                  isFavouriteOf:favourite
-                }
-                }else{
-                  updatePayload={
-                    ...data,
-                    isFavouriteOf:[this.authService.getUserDetails().id]
-                  }
+                  isFavouriteOf:favourite.filter(id=>id!==userId)
                 }
 
-
-               return this.productService.updateProduct(updatePayload)
+                return this.productService.updateProduct(updatedPayload);
               }
+
+              favourite.push(userId);
+              const updatePayload: Product = {
+                ...data,
+                isFavouriteOf: favourite
+              };
+              return this.productService.updateProduct(updatePayload);
 
             })
           )
           .subscribe(res=>{
             if(res){
-              alert("Item added to favourite list")
-              // this.fetchData();
+              data.checked=!data.checked;
             }
           })
-      }
+
     }else{
-      alert("Please login before add to favourite")
+      alert("Please login before add to favourite");
+      this.router.navigateByUrl("/login").then();
     }
   }
 

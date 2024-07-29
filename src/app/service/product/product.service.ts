@@ -14,11 +14,10 @@ export class ProductService {
   constructor(private httpClient:HttpClient) { }
 
   updateProduct(data:Product):Observable<Product>{
-    console.log(environment.name)
+    if(Object.hasOwn(data,'checked')) delete data.checked;
     return this.httpClient.put<Product>(`${this.productEndPoint}/${data?.id}`,data);
   }
   saveProduct(data:Product):Observable<Product>{
-    console.log(environment.name)
     return this.httpClient.post<Product>(this.productEndPoint,data);
   }
 
