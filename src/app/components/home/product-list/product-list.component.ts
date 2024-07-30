@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {AuthService} from "../../../service/auth/auth.service";
 import {ProductComponent} from "../../../shared/product/product.component";
 import {Router} from "@angular/router";
+import {ToastService} from "../../../shared/toast/service/toast.service";
 
 @Component({
   selector: 'app-product-list',
@@ -37,6 +38,7 @@ export class ProductListComponent  implements OnInit{
 
   constructor(private productService:ProductService,
               private router:Router,
+              private toastService:ToastService,
               private authService:AuthService) {
   }
   ngOnInit(): void {
@@ -91,7 +93,7 @@ export class ProductListComponent  implements OnInit{
           })
 
     }else{
-      alert("Please login before add to favourite");
+      this.toastService.show("Please login before add to favourite")
       this.router.navigateByUrl("/login").then();
     }
   }

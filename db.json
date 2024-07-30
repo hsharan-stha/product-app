@@ -1,23 +1,13 @@
 {
   "product": [
     {
-      "id": "7dea",
-      "label": "Football",
-      "price": "2000",
-      "isFavouriteOf": [
-        3,
-        2,
-        1
-      ]
-    },
-    {
       "id": "3355",
       "label": "VolleyBall",
       "price": "1000",
       "isFavouriteOf": [
         3,
-        2,
-        1
+        1,
+        2
       ]
     },
     {
@@ -38,31 +28,9 @@
     },
     {
       "id": "3da3",
-      "label": "Jeans",
+      "label": "Jeans 1",
       "price": "3000",
-      "isFavouriteOf": [
-        1,
-        2
-      ]
-    },
-    {
-      "id": "7dfc",
-      "label": "Shirt",
-      "price": "1200",
-      "isFavouriteOf": [
-        2
-      ]
-    },
-    {
-      "id": "6af7",
-      "label": "Shoes @",
-      "price": "1200",
       "isFavouriteOf": []
-    },
-    {
-      "id": "1265",
-      "label": "Computer",
-      "price": "2000"
     }
   ]
 }

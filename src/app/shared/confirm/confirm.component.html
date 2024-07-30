@@ -1,0 +1,23 @@
+<div class="modals">
+  <div class="modals-container">
+    <div class="modals-container-header">
+      {{ headerTitle }}
+    </div>
+    <div class="modals-container-body">
+      <div>
+        <div class="body-title">{{ bodyTitle }}</div>
+        <div class="body-message">{{ bodyMessage }}</div>
+      </div>
+    </div>
+    <div class="modals-container-footer">
+      <div class="d-flex">
+        <button (click)="cancelBtnClick()" id="cancelBtn">
+          {{ 'Cancel' }}
+        </button>
+        <button (click)="confirmBtnClick()" id="confirmBtn">
+          {{ 'Ok' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

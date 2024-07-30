@@ -7,6 +7,7 @@ import {concatMap, filter, take} from "rxjs";
 import {NgIf} from "@angular/common";
 import {createPriceValidators} from "../../../validators/createPriceValidators";
 import {FormValidateMark} from "../../../utils/FormValidateMark";
+import {ConfirmService} from "../../../shared/confirm/service/confirm.service";
 
 @Component({
   selector: 'app-product-create',
@@ -25,6 +26,7 @@ export class ProductCreateComponent extends FormValidateMark implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private productService: ProductService,
               private router: Router,
+              private confirmService:ConfirmService,
               private activatedRoute: ActivatedRoute) {
     super();
     this.productForm = this.formBuilder.group({
@@ -59,20 +61,26 @@ export class ProductCreateComponent extends FormValidateMark implements OnInit {
       this.validateAllFormFields(this.productForm)
       return;
     }
-    let data: Product = this.productForm.value;
 
-    if (data?.id) {
-      this.productService.updateProduct(data).subscribe(async (res) => {
-        alert("data updated successfully")
-        await this.router.navigateByUrl("/admin/product-list")
-      })
-    } else {
-      if (data?.id == null) delete data?.id;
-      this.productService.saveProduct(data).subscribe(async (res) => {
-        alert("data save successfully")
-        await this.router.navigateByUrl("/admin/product-list")
-      })
-    }
+    this.confirmService.show({headerTitle:"Save", bodyTitle:"Read to save", bodyMessage:"Are you sure?"})
+    this.confirmService.getProcessConfirmation().pipe(take(1)).subscribe(res=>{
+      if(res){
+        let data: Product = this.productForm.value;
+
+        if (data?.id) {
+          this.productService.updateProduct(data).subscribe(async (res) => {
+            await this.router.navigateByUrl("/admin/product-list")
+          })
+        } else {
+          if (data?.id == null) delete data?.id;
+          this.productService.saveProduct(data).subscribe(async (res) => {
+            await this.router.navigateByUrl("/admin/product-list")
+          })
+        }
+      }
+    })
+
+
   }
 
   public async navigateToList(): Promise<void> {

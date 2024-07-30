@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../../service/product/product.service";
-import {from, Observable} from "rxjs";
+import {from, Observable, take} from "rxjs";
 import {Product} from "../../../interface/Product";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {Router} from "@angular/router";
+import {ConfirmService} from "../../../shared/confirm/service/confirm.service";
 
 @Component({
   selector: 'app-product-table',
@@ -22,7 +23,9 @@ export class ProductTableComponent implements OnInit{
 
   public getAllData$:Observable<Array<Product>> =from([]);
 
-  constructor(private productService:ProductService,private router:Router) {
+  constructor(private productService:ProductService,
+              private confirmService:ConfirmService,
+              private router:Router) {
   }
 
   ngOnInit(): void {
@@ -42,9 +45,16 @@ export class ProductTableComponent implements OnInit{
   }
 
   public confirmDelete(id:string | undefined){
-    if(id && window.confirm('Are you sure to delete?')){
-      this.deleteAction(id)
-    }
+    this.confirmService.show({
+      headerTitle:"Delete",
+      bodyTitle:"Ready to delete",
+      bodyMessage:"Are you sure to delete"
+    })
+    this.confirmService.getProcessConfirmation().pipe(take(1)).subscribe(res=>{
+      if(res && id){
+        this.deleteAction(id);
+      }
+    })
   }
 
   private deleteAction(id:string){
