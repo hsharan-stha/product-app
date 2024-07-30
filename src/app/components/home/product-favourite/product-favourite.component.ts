@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProductComponent} from "../../../shared/product/product.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Product} from "../../../interface/Product";
-import {map, Observable} from "rxjs";
+import {from, map, Observable} from "rxjs";
 import {ProductService} from "../../../service/product/product.service";
 import {AuthService} from "../../../service/auth/auth.service";
 
@@ -17,13 +17,13 @@ import {AuthService} from "../../../service/auth/auth.service";
   templateUrl: './product-favourite.component.html',
   styleUrl: './product-favourite.component.css'
 })
-export class ProductFavouriteComponent  implements OnInit {
+export class ProductFavouriteComponent implements OnInit {
 
   private currentPage: number = 1;
   private itemPerPage: number = 10;
   private tempData: Array<Product> = [];
 
-  public allProduct$: Observable<Array<Product>>
+  public allProduct$: Observable<Array<Product>> = from([])
   public searchText: string = "";
 
 
@@ -41,7 +41,7 @@ export class ProductFavouriteComponent  implements OnInit {
   }
 
 
-  public onScroll():void{
+  public onScroll(): void {
     this.currentPage++;
     this.fetchData();
   }

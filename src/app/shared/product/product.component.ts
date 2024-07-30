@@ -2,7 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {FilterPipe} from "../../pipe/filter.pipe";
 import {InfiniteScrollDirective} from "ngx-infinite-scroll";
-import {Observable} from "rxjs";
+import {from, Observable} from "rxjs";
 import {Product} from "../../interface/Product";
 import {AuthService} from "../../service/auth/auth.service";
 
@@ -22,7 +22,7 @@ import {AuthService} from "../../service/auth/auth.service";
 })
 export class ProductComponent implements OnInit{
 
-  @ViewChild("scrollContainer") scrollContainer:ElementRef;
+  @ViewChild("scrollContainer") scrollContainer: ElementRef | undefined;
 
   constructor(private authService:AuthService) {
   }
@@ -30,14 +30,15 @@ export class ProductComponent implements OnInit{
   ngOnInit() {
   }
 
-  @Input() public products$:Observable<Product[]>;
-  @Input() public searchText:string;
+  @Input() public products$:Observable<Product[]> =from([]) ;
+  @Input() public searchText:string="";
 
   @Output() public scrollEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
   @Output() public addToFavouriteEvent:EventEmitter<Product>=new EventEmitter<Product>();
 
 
   public scrollFn():void{
+    if(!this.scrollContainer) return;
     const container = this.scrollContainer.nativeElement;
     const previousScrollHeight=container.scrollHeight;
     const previousScrollTop=container.scrollTop;

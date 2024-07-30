@@ -21,7 +21,7 @@ export class SidebarComponent {
 
   @Output() public logoutEvent:EventEmitter<boolean>=new EventEmitter<boolean>;
 
-  @Input() public sideBarList:SideBar[];
+  @Input() public sideBarList:SideBar[]=[];
   @Input() public username:string | undefined;
 
 

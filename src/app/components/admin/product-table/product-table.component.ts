@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../../service/product/product.service";
-import {Observable} from "rxjs";
+import {from, Observable} from "rxjs";
 import {Product} from "../../../interface/Product";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {Router} from "@angular/router";
@@ -20,7 +20,7 @@ export class ProductTableComponent implements OnInit{
   public currentPage:number=1;
   private itemPerPage:number=10;
 
-  public getAllData$:Observable<Array<Product>>;
+  public getAllData$:Observable<Array<Product>> =from([]);
 
   constructor(private productService:ProductService,private router:Router) {
   }

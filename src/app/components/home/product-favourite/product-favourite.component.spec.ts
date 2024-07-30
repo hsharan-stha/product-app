@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductFavouriteComponent } from './product-favourite.component';
+import {ProductService} from "../../../service/product/product.service";
+import {HttpClient, HttpHandler} from "@angular/common/http";
 
 describe('ProductFavouriteComponent', () => {
   let component: ProductFavouriteComponent;
@@ -8,7 +10,8 @@ describe('ProductFavouriteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProductFavouriteComponent]
+      imports: [ProductFavouriteComponent],
+      providers:[ProductService,HttpClient,HttpHandler]
     })
     .compileComponents();
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../../service/product/product.service";
-import {concat, concatMap, map, Observable, of} from "rxjs";
+import {concat, concatMap, from, map, Observable, of} from "rxjs";
 import {Product} from "../../../interface/Product";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {InfiniteScrollDirective} from "ngx-infinite-scroll";
@@ -31,7 +31,7 @@ export class ProductListComponent  implements OnInit{
   private itemPerPage:number=10;
   private tempData:Array<Product>=[];
 
-  public allProduct$:Observable<Array<Product>>
+  public allProduct$:Observable<Array<Product>> = from([])
   public searchText:string="";
 
 

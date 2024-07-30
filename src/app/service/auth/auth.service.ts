@@ -8,7 +8,7 @@ import {UserInfo} from "../../interface/UserInfo";
 })
 export class AuthService {
 
-  private userDetails:UserInfo;
+  private userDetails: UserInfo | undefined;
 
   constructor(private router:Router) { }
 
@@ -28,7 +28,7 @@ export class AuthService {
     if(accessDetails){
       this.userDetails = JSON.parse(accessDetails)
     }
-    return this.userDetails;
+    return <UserInfo>this.userDetails;
   }
 
   public async logout():Promise<void>{
