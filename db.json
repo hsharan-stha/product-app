@@ -48,13 +48,21 @@
     {
       "id": "7dfc",
       "label": "Shirt",
-      "price": "1200"
+      "price": "1200",
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "6af7",
       "label": "Shoes @",
       "price": "1200",
       "isFavouriteOf": []
+    },
+    {
+      "id": "1265",
+      "label": "Computer",
+      "price": "2000"
     }
   ]
 }
