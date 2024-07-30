@@ -6,7 +6,8 @@
       "price": "2000",
       "isFavouriteOf": [
         3,
-        2
+        2,
+        1
       ]
     },
     {
@@ -15,25 +16,39 @@
       "price": "1000",
       "isFavouriteOf": [
         3,
-        2
+        2,
+        1
       ]
     },
     {
       "id": "f055",
       "label": "BasketBall",
       "price": "2500",
-      "isFavouriteOf": []
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "809d",
       "label": "Pants",
       "price": "2000",
-      "isFavouriteOf": []
+      "isFavouriteOf": [
+        2
+      ]
     },
     {
       "id": "3da3",
       "label": "Jeans",
-      "price": "3000"
+      "price": "3000",
+      "isFavouriteOf": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "7dfc",
+      "label": "Shirt",
+      "price": "1200"
     }
   ]
 }

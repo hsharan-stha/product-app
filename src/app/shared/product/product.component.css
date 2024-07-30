@@ -36,19 +36,3 @@
   background-color: white;
 }
 
-.image-landscape {
-  position: relative;
-  width: 100%;
-  padding-top: calc(16/16*100%);
-}
-
-.image-landscape img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  object-fit: cover;
-}
-
-

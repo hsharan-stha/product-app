@@ -1,48 +1,56 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {LoginService} from "../../../service/login/login.service";
 import {AuthService} from "../../../service/auth/auth.service";
 import {Router} from "@angular/router";
 import {UserInfo} from "../../../interface/UserInfo";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginPayload} from "../../../interface/LoginPayload";
+import {NgIf, NgOptimizedImage} from "@angular/common";
+import {FormValidateMark} from "../../../utils/FormValidateMark";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    NgIf
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent extends FormValidateMark implements OnInit {
 
-  public loginForm:FormGroup;
-  constructor(private loginService:LoginService,
-              private authService:AuthService,
-              private router:Router,
-              private formBuilder:FormBuilder) {
+  @HostBinding("class.app-login-style") className: string = ".app-login-style";
+
+  public loginForm: FormGroup;
+
+  constructor(private loginService: LoginService,
+              private authService: AuthService,
+              private router: Router,
+              private formBuilder: FormBuilder) {
+    super();
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    })
 
   }
 
   ngOnInit(): void {
-    this.initializeForm();
   }
 
-  public initializeForm(){
-    this.loginForm=this.formBuilder.group({
-      username:['',Validators.required],
-      password:['',Validators.required]
-    })
-  }
 
-  public login():void{
-    const loginData:LoginPayload=this.loginForm.value;
-    console.log(loginData)
+  public login(): void {
+    if(this.loginForm.invalid){
+    this.validateAllFormFields(this.loginForm);
+      return;
+    }
+    const loginData: LoginPayload = this.loginForm.value;
     this.loginService.login(loginData)
       .subscribe(async res => {
         const loggedInDetail: UserInfo = res[0];
-        if(res?.length === 0){
+        if (res?.length === 0) {
           alert("please enter valid username and password");
           return;
         }
@@ -54,7 +62,6 @@ export class LoginComponent implements OnInit{
         }
       })
   }
-
 
 
 }

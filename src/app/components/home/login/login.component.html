@@ -1,22 +1,28 @@
-
 <div class="login-container">
-  <div class="banner">
+  <div class="image-landscape">
+    <img [ngSrc]="'./assets/icons/Logo.svg'" [alt]="'logo'" fill priority/>
 
   </div>
   <div class="form">
-<form [formGroup]="loginForm" (submit)="login()">
-  <h1>Login to your account</h1>
-  <div class="form-group">
-    <label>Username</label>
-    <input class="form-control" type="text" formControlName="username" />
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input class="form-control" type="text" formControlName="password" />
-  </div>
-  <div class="form-group">
-    <button type="submit">Login</button>
-  </div>
-</form>
+    <form [formGroup]="loginForm" (submit)="login()">
+      <h1>Login to your account</h1>
+      <div class="form-group">
+        <label>Username</label>
+        <input class="form-control" type="text" formControlName="username"/>
+        <div *ngIf="checkValidation(loginForm,'username')" class="errors">
+          <div *ngIf="fieldValidation(loginForm,'username')?.errors?.['required']" class="error-message">This is required Field</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" type="password" formControlName="password"/>
+        <div *ngIf="checkValidation(loginForm,'password')" class="errors">
+          <div *ngIf="fieldValidation(loginForm,'password')?.errors?.['required']" class="error-message">This is required Field</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit">Login</button>
+      </div>
+    </form>
   </div>
 </div>

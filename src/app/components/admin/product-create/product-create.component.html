@@ -7,20 +7,21 @@
   </div>
 <div class="form-container">
 <form [formGroup]="productForm" (submit)="saveProduct()">
-  <div>
+  <div class="form-group">
     <label>Product Label</label>
       <input type="text" formControlName="label" />
-    <div *ngIf="labelField?.invalid && (labelField?.dirty || !labelField?.untouched)">
-      <div *ngIf="labelField?.errors?.['required']" class="error-message">This is required Field</div>
-      <div *ngIf="labelField?.errors?.['minLength']" class="error-message">Text length must be greater than 3</div>
+    {{fieldValidation(productForm,'label')?.errors?.['minLength']}}
+    <div *ngIf="checkValidation(productForm,'label')" class="errors">
+      <div *ngIf="fieldValidation(productForm,'label')?.errors?.['required']" class="error-message">This is required Field</div>
+      <div *ngIf="fieldValidation(productForm,'label')?.errors?.['minLength']?.['requiredLength'] < 3" class="error-message">Text length must be greater than 3</div>
     </div>
   </div>
-  <div>
+  <div class="form-group">
     <label>Product Price</label>
       <input type="text" formControlName="price"/>
-    <div *ngIf="priceField?.invalid && (priceField?.dirty || !priceField?.untouched)">
-      <div *ngIf="priceField?.errors?.['required']" class="error-message">This is required Field</div>
-      <div *ngIf="priceField?.errors?.['invalidPrice']" class="error-message">Text must be valid price.</div>
+    <div *ngIf="checkValidation(productForm,'price')"  class="errors">
+      <div *ngIf="fieldValidation(productForm,'price')?.errors?.['required']" class="error-message">This is required Field</div>
+      <div *ngIf="fieldValidation(productForm,'price')?.errors?.['invalidPrice']" class="error-message">Text must be valid price.</div>
     </div>
   </div>
   <div>

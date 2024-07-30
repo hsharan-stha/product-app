@@ -26,6 +26,13 @@
   height: 100%;
 }
 
+.app-login-style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .app-sidebar{
   display: flex;
   width: 250px;
@@ -80,6 +87,24 @@ For admin panel
   border:solid 1px #F0F1F3;
   padding: 0.5rem 0.75rem;
   width: 50%;
+}
+
+
+
+
+.image-landscape {
+  position: relative;
+  width: 100%;
+  padding-top: calc(9/16*100%);
+}
+
+.image-landscape img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
 }
 
 

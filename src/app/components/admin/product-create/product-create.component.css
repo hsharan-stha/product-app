@@ -28,7 +28,18 @@
   padding: 0.5rem 1rem;
 }
 
+.form-group{
+  position: relative;
+}
 
-.form-container form .error-message{
+
+.errors{
+  position: absolute;
+  background: wheat;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  right: 0;
+}
+.error-message{
   color:red;
 }
