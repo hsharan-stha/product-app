@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {FilterPipe} from "../../pipe/filter.pipe";
 import {InfiniteScrollDirective} from "ngx-infinite-scroll";
@@ -20,9 +20,14 @@ import {AuthService} from "../../service/auth/auth.service";
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit{
+
+  @ViewChild("scrollContainer") scrollContainer:ElementRef;
 
   constructor(private authService:AuthService) {
+  }
+
+  ngOnInit() {
   }
 
   @Input() public products$:Observable<Product[]>;
@@ -33,7 +38,20 @@ export class ProductComponent {
 
 
   public scrollFn():void{
+    const container = this.scrollContainer.nativeElement;
+    const previousScrollHeight=container.scrollHeight;
+    const previousScrollTop=container.scrollTop;
+
+
     this.scrollEvent.emit(true);
+
+
+
+    setTimeout(()=>{
+      container.scrollTop=previousScrollTop+(container.scrollHeight - previousScrollHeight)
+      console.log(container.scrollTop);
+
+    },520)
   }
 
   public getRandomImage(i:number):string{
